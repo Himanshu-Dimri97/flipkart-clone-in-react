@@ -16,8 +16,8 @@ const Homepage = () => {
         const fetchProducts = async () => {
             try {
                 const [mobilesRes, watchesRes] = await Promise.all([
-                    fetch("https://flipkart-server-09gl.onrender.com/products?subcategoryId=1"),
-                    fetch("https://flipkart-server-09gl.onrender.com/products?subcategoryId=2")
+                    fetch("https://flipkart-server-kohl.vercel.app/api/products?subcategoryId=1"),
+                    fetch("https://flipkart-server-kohl.vercel.app/api/products?subcategoryId=2")
                 ]);
 
                 const [mobilesData, watchesData] = await Promise.all([

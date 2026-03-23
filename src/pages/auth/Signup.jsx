@@ -35,7 +35,7 @@ const Signup = () => {
         try {
             const trimmedEmail = formData.email.trim();
 
-            const checkRes = await fetch(`https://flipkart-server-09gl.onrender.com/users?email=${trimmedEmail}`);
+            const checkRes = await fetch(`https://flipkart-server-kohl.vercel.app/api/users?email=${trimmedEmail}`);
             if (!checkRes.ok) throw new Error("Server check failed");
 
             const existingUsers = await checkRes.json();
@@ -44,7 +44,7 @@ const Signup = () => {
                 return;
             }
 
-            const response = await fetch("https://flipkart-server-09gl.onrender.com/users", {
+            const response = await fetch("https://flipkart-server-kohl.vercel.app/api/users", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

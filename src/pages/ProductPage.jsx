@@ -10,7 +10,7 @@ const ProductPage = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch(`https://flipkart-server-09gl.onrender.com/products?subSlug=${slug}`);
+                const res = await fetch(`https://flipkart-server-kohl.vercel.app/api/products?subSlug=${slug}`);
                 const data = await res.json();
                 setProducts(data);
             }
