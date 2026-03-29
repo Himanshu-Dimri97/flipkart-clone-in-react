@@ -1,25 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
 import ProductCard from "../components/ProductCard";
-import { getProductsBySlug } from "../api/api"
+import productsData from "../data/productData.js";
 
 const ProductPage = () => {
     const { slug } = useParams();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    console.log(slug);
     useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const data = await getProductsBySlug(slug);
-                setProducts(data);
-            }
-            catch (err) {
-                console.log(err.message)
-            }
-            finally {
-                setLoading(false);
-            }
+        const fetchProducts = () => {
+
+            const data = productsData.filter((item) => item.subSlug == slug);
+
+            setProducts(data);
+            setLoading(false);
 
         }
         fetchProducts();
@@ -34,21 +29,24 @@ const ProductPage = () => {
     }
 
     return (
-        <div className="container mx-auto px-6 lg:px-12">
-            <hr className="text-[#ccc]" />
-            <div className="my-3 md:my-4">
-                <h2 className="text-lg md:text-2xl text-black font-bold mb-3 md:mb-6">Suggested For You</h2>
-                <div className="grid grid-cols-12">
-                    {
-                        products.map((product) => {
-                            return (
-                                <Link to={`/category/${product.subSlug}/${product.slug}`} key={product.id} className="col-span-6 md:col-span-3 lg:col-span-2 pb-2 pr-2">
-                                    <ProductCard product={product} />
-                                </Link>
-                            )
-                        })
-                    }
+        <div className="bg-[#fff6f0]">
+
+            <div className="container mx-auto px-6 lg:px-12">
+                <div className="py-3 md:py-4">
+                    <h2 className="text-lg md:text-2xl text-black font-bold mb-3 md:mb-6">Suggested For You</h2>
+                    <div className="grid grid-cols-12">
+                        {
+                            products.map((product) => {
+                                return (
+                                    <Link to={`/category/${product.subSlug}/${product.slug}`} key={product.id} className="col-span-6 md:col-span-3 lg:col-span-2 pb-4 pr-4">
+                                        <ProductCard product={product} />
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
+
             </div>
 
         </div>

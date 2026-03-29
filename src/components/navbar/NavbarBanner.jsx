@@ -29,19 +29,19 @@ const NavbarBanner = () => {
 
     return (
         <div className='grid py-4 grid-cols-12'>
-            <div className='col-span-2'>
+            <div className='col-span-6 lg:col-span-2'>
                 <Link to={"/"} className=''>
-                    <img src="/assets/logo.png" className='w-35 h-15 object-contain' />
+                    <img src="/assets/logo.png" className='w-25 h-10 lg:w-35 lg:h-15 object-contain' />
                 </Link>
             </div>
-            <div className="col-span-8 flex items-center">
+            <div className="hidden lg:block lg:col-span-6 xl:col-span-8 pt-2 items-center">
                 <input
-                    className="w-full h-10 px-3 text-black text-sm border border-[#2a55e5] rounded-lg focus:outline-none"
+                    className="w-full h-10 px-3 text-black text-sm border border-[#ff914d] rounded-lg focus:outline-none"
                     placeholder="Search for Products"
                 />
             </div>
-            <div className="col-span-2 justify-items-end">
-                <div className="flex justify-between items-center h-15">
+            <div className="col-span-6 lg:col-span-4 xl:col-span-2 justify-items-end">
+                <div className="flex justify-between items-center h-10 lg:h-15">
                     <div className="flex justify-end gap-3">
                         <div ref={dropdownRef} className="relative">
 
@@ -132,6 +132,12 @@ const NavbarBanner = () => {
 
 
                 </div>
+            </div>
+            <div className="block lg:hidden col-span-12 pt-2 items-center">
+                <input
+                    className="w-full h-10 px-3 text-black text-sm border border-[#ff914d] rounded-lg focus:outline-none"
+                    placeholder="Search for Products"
+                />
             </div>
         </div>
     )

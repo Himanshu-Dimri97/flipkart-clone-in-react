@@ -1,42 +1,41 @@
-# Quality Shop E-Commerce
+# 🛒 Quality Shop E-Commerce
 
-A React (Vite) eCommerce web application with a **local JSON Server (mock backend)**.
-
----
-
-## Features
-
-* Built a responsive UI using React (Vite) and Tailwind CSS
-* Used JSON Server as a mock backend for creating RESTful APIs
-* Implemented dynamic product detail pages using React Router params
-* Created Add to Cart functionality using React Context API
-* Implemented basic user authentication (mock) using Context API
-* Fetched and managed product data from local API
+A React (Vite) eCommerce web application with **static local data (data.js)**.
 
 ---
 
-## Tech Stack
+## 🚀 Features
+
+* Built a responsive UI using React (Vite) and Tailwind CSS  
+* Used **local data files (categoryData.js, subcategoryData.js, productData.js, loginData.js)**
+* Implemented dynamic product detail pages using React Router params  
+* Created Add to Cart functionality using React Context API  
+* Implemented basic user login (mock) using Context API  
+* Managed product data locally without any external API  
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-
 * React.js (Vite)
 * Tailwind CSS
 
-### Backend (Mock - Local)
-
-* JSON Server (`json-server`)
-* db.json (local database)
+### Data Handling
+* Local JavaScript files (categoryData.js, subcategoryData.js, productData.js, loginData.js)
 
 ---
 
-## Installation & Setup
+## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repo
 
 ```bash
 git clone https://github.com/himanshu-dimri-fullstack/quality-shop-ecommerce-react-vite
-cd /quality-shop-ecommerce-react-vite
+cd quality-shop-ecommerce-react-vite
 ```
+
+---
 
 ### 2️⃣ Install dependencies
 
@@ -44,56 +43,33 @@ cd /quality-shop-ecommerce-react-vite
 npm install
 ```
 
-### 3️⃣ Run JSON Server (Mock Backend)
-
-```bash
-npx json-server --watch db.json --port 3000
-```
-
-👉 API will run on:
-
-```
-http://localhost:3000
-```
-
 ---
 
-### 4️⃣ Run Frontend
+### 3️⃣ Run the app
 
 ```bash
 npm run dev
 ```
 
-👉 Frontend will run on:
-
+👉 App will run on:
 ```
 http://localhost:5173
-```
+
 
 ---
 
-## API Example
+## ⚠️ Note
 
-* Get all products:
-
-```
-GET http://localhost:3000/products
-```
-
----
-
-## Note
-
-* This project uses a **local mock backend (JSON Server)**
-* No real database or authentication system is used
-* Data is not persistent in production
+* This project uses **static local data**  
+* No backend or database is connected  
+* No real authentication system is implemented  
+* Data is fixed and does not persist dynamically  
 
 ---
 
-## Future Improvements
+## 🔮 Future Improvements
 
-* Integrate real backend (Node.js + MongoDB)
-* Add authentication using JWT
-* Add payment gateway integration
-
----
+* Integrate real backend (Node.js + MongoDB)  
+* Add authentication using JWT  
+* Add payment gateway integration  
+* Add admin dashboard for product management  

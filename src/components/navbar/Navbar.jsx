@@ -2,7 +2,7 @@ import NavbarBanner from './NavbarBanner'
 
 const Navbar = () => {
     return (
-        <div>
+        <div className='bg-white'>
             <div className='container mx-auto px-6 lg:px-12'>
                 <NavbarBanner />
             </div>

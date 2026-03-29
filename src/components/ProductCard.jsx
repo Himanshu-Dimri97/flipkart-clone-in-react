@@ -2,7 +2,7 @@ const ProductCard = ({ product }) => {
     const finalPrice = product?.discount ? product?.price - product?.price * (product?.discount / 100) : product?.price;
 
     return (
-        <div className='border p-2 border-[#eee] rounded-2xl mb-2 lg:mb-0'>
+        <div className='border bg-white p-2 border-[#eee] rounded-2xl mb-2 lg:mb-0 shadow-sm'>
             <div className='w-full'>
                 <img src={product.image} className='w-full h-30 sm:h-40 md:h-60 object-contain ' />
             </div>

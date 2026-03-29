@@ -5,7 +5,8 @@ import Button from "../components/Button";
 import ProductCard from "../components/ProductCard";
 import { ArrowRight } from "lucide-react"
 import { CartContext } from "../context/CartContext";
-import { getProducts, getProductBySlug, getSubcategoryById } from "../api/api.js"
+import productsData from "../data/productData.js";
+import subcategoryData from "../data/subcategoryData.js";
 
 const ProductDetailPage = () => {
 
@@ -20,26 +21,24 @@ const ProductDetailPage = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        const fetchProduct = async () => {
-            try {
-                const data = await getProductBySlug(slug);
-                setProduct(data);
+        const fetchProduct = () => {
 
-                const subCategoryId = data.subcategoryId;
+            const data = productsData.filter((item) => item.slug == slug);
+            setProduct(data[0]);
 
-                const subCatData = await getSubcategoryById(subCategoryId)
-                setSubCat(subCatData);
+            const subCatSlug = data[0].subSlug;
 
-                const productsData = await getProducts(subCatData.id)
-                setProducts(productsData);
-            }
-            catch (err) {
-                console.log(err.message);
-            }
-            finally {
-                setLoading(false);
-            }
+            console.log(subCatSlug);
+
+            const subCatData = subcategoryData.find((item) => item.slug == subCatSlug)
+            setSubCat(subCatData);
+
+            const suggestedProducts = productsData.filter((item) => item.subSlug == subCatSlug)
+            setProducts(suggestedProducts);
+
+            setLoading(false);
         }
+
         fetchProduct();
     }, [slug]);
 
@@ -57,13 +56,13 @@ const ProductDetailPage = () => {
         )
     }
     return (
-        <div className="bg-[#f1f3f6]  border-t border-solid border-[#ccc]">
-            <div className="container mx-auto px-6 lg:px-12 bg-white">
+        <div className="bg-[#fff6f0]">
+            <div className="container mx-auto px-6 lg:px-12">
                 <div className="px-1">
-                    <div className="py-2">
+                    <div className="py-6">
                         <span className="text-sm text-[#707070ff] font-semibold pr-1"><Link>Home</Link></span>
                         <span className="text-sm text-[#707070ff] font-semibold pr-1">/</span>
-                        <span className="text-sm text-[#707070ff] font-semibold pr-1"><Link>{subCat?.name}</Link></span>
+                        <span className="text-sm text-[#707070ff] font-semibold pr-1"><Link>{subCat.name}</Link></span>
                         <span className="text-sm text-[#707070ff] font-semibold pr-1">/</span>
                         <span className="text-sm text-[#707070ff] font-semibold pr-1"><Link>{product?.title}</Link></span>
                     </div>
@@ -170,7 +169,7 @@ const ProductDetailPage = () => {
                             <ArrowRight size={18} className="text-white" />
                         </Link>
                     </div>
-                    <div className="grid grid-cols-12 pb-3">
+                    <div className="grid grid-cols-12 pb-8">
                         {
                             products.slice(0, 6).map((product, index) => {
                                 return (

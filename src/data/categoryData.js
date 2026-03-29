@@ -1,44 +1,29 @@
-const categoryData = [
+const categories = [
     {
-        id: 1,
-        name: "Fashion",
-        img: "assets/category/fashion.webp",
+        "id": "1",
+        "name": "Electronics",
+        "slug": "electronics"
     },
     {
-        id: 2,
-        name: "Electronics",
-        img: "assets/category/electronics.webp",
+        "id": "2",
+        "name": "Fashion",
+        "slug": "fashion"
     },
     {
-        id: 3,
-        name: "Home & kitchen",
-        img: "assets/category/home-kitchen.webp",
+        "id": "3",
+        "name": "Home & Kitchen",
+        "slug": "home-kitchen"
     },
     {
-        id: 4,
-        name: "Mobiles",
-        img: "assets/category/mobiles.webp",
+        "id": "4",
+        "name": "Computers",
+        "slug": "computers"
     },
     {
-        id: 5,
-        name: "Food & Health",
-        img: "assets/category/food-health.webp",
-    },
-    {
-        id: 6,
-        name: "Beauty",
-        img: "assets/category/beauty.webp",
-    },
-    {
-        id: 7,
-        name: "Furniture",
-        img: "assets/category/furniture.webp",
-    },
-    {
-        id: 8,
-        name: "Sports",
-        img: "assets/category/home-kitchen.webp",
+        "id": "5",
+        "name": "Watches",
+        "slug": "watches"
     }
 ]
 
-export default categoryData
+export default categories;
